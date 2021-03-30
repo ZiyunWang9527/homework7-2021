@@ -30,7 +30,11 @@ document.querySelector("#faster").addEventListener("click", function() {
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-	video.currentTime += 15;
+	if (video.currentTime + 15 >= video.duration){
+		video.load();
+	}else{
+		video.currentTime += 15;
+	}
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
